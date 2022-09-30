@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { Icon } from "@iconify/react";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={darkMode ? "dark-mode" : "light-mode"}>
+      <div className="switch-checkbox">
+        <label className="switch">
+          <input
+            type="checkbox"
+            onChange={() => setDarkMode(!darkMode)}
+          ></input>
+          <span className="slider round"></span>
+        </label>
+      </div>
+
+      <div className="container">
+        <h1 id="title">Sswop</h1>
+        <div className="small-container">
+          <p>Coming Soon</p>
+          <div className="icons">
+            <Icon icon="logos:google-play-icon" style={{ fontSize: "50px" }} />
+            <Icon icon="logos:apple-app-store" style={{ fontSize: "50px" }} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
